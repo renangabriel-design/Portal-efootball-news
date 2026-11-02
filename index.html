@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STF-99 — Supremo Tribunal de Fairness | eFootball</title>
+    <title>STF 99 — Supremo Tribunal de Fairness</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -87,10 +87,13 @@
                     </div>
                 </a>
 
-                <!-- Nav Desktop (Somente STF) -->
+                <!-- Nav Desktop -->
                 <nav class="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide text-slate-300">
+                    <a href="#ministros" class="hover:text-ef-cyan transition-colors flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> MINISTROS
+                    </a>
                     <a href="#stf" class="hover:text-ef-accent transition-colors flex items-center gap-2 text-ef-accent">
-                        <i data-lucide="book-open" class="w-4 h-4"></i> STF
+                        <i data-lucide="book-open" class="w-4 h-4"></i> ARTIGOS STF
                     </a>
                 </nav>
 
@@ -115,8 +118,11 @@
 
         <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-ef-card border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#ministros" class="block py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> MINISTROS
+            </a>
             <a href="#stf" class="block py-2 text-ef-accent font-semibold flex items-center gap-2">
-                <i data-lucide="book-open" class="w-4 h-4"></i> STF
+                <i data-lucide="book-open" class="w-4 h-4"></i> ARTIGOS STF
             </a>
             <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" 
                class="flex items-center justify-center gap-2 w-full py-3 mt-4 rounded-xl bg-green-500 hover:bg-green-600 text-black font-bold">
@@ -129,7 +135,7 @@
     <main class="flex-grow pt-20">
 
         <!-- HERO SECTION -->
-        <section class="relative min-h-[50vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
+        <section class="relative min-h-[45vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
             <div class="absolute top-1/4 left-10 w-96 h-96 bg-ef-purple/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-ef-accent/15 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -142,13 +148,57 @@
                 <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-none mb-4">
                     STF-99 — SUPREMO TRIBUNAL DE FAIRNESS <br/>
                     <span class="bg-gradient-to-r from-ef-accent via-ef-cyan to-ef-purple bg-clip-text text-transparent text-glow-green">
-                        REGULAMENTO OFICIAL
+                        CORPO DE MINISTROS & REGULAMENTO
                     </span>
                 </h1>
 
                 <p class="max-w-xl mx-auto text-slate-300 text-base sm:text-lg">
-                    Consulte abaixo as leis e diretrizes aplicadas a todas as competições e partidas oficiais.
+                    Consulte abaixo os ministros responsáveis pela aplicação das leis e as diretrizes oficiais dos campeonatos.
                 </p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO MINISTROS ATUAIS -->
+        <section id="ministros" class="py-16 bg-slate-950/60 border-b border-white/5">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-ef-cyan text-xs font-bold tracking-widest uppercase">Autoridades do Tribunal</span>
+                    <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider mt-1">
+                        MINISTROS <span class="text-ef-cyan">ATUAIS</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Ministro Sousa -->
+                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-cyan/50 transition-all text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-cyan/10 border border-ef-cyan/30 flex items-center justify-center text-ef-cyan mb-4 group-hover:bg-ef-cyan group-hover:text-black transition">
+                            <i data-lucide="user-check" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-[10px] font-extrabold text-ef-cyan uppercase tracking-widest bg-ef-cyan/10 px-3 py-1 rounded-full border border-ef-cyan/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Sousa</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                    </div>
+
+                    <!-- Ministro Renan -->
+                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-accent/50 transition-all text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent mb-4 group-hover:bg-ef-accent group-hover:text-black transition">
+                            <i data-lucide="shield" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-[10px] font-extrabold text-ef-accent uppercase tracking-widest bg-ef-accent/10 px-3 py-1 rounded-full border border-ef-accent/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Renan</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                    </div>
+
+                    <!-- Ministro Maurício -->
+                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-purple/50 transition-all text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-purple/10 border border-ef-purple/30 flex items-center justify-center text-ef-purple mb-4 group-hover:bg-ef-purple group-hover:text-white transition">
+                            <i data-lucide="award" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-[10px] font-extrabold text-ef-purple uppercase tracking-widest bg-ef-purple/10 px-3 py-1 rounded-full border border-ef-purple/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Maurício</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -163,19 +213,19 @@
                     <p class="text-slate-400 text-sm mt-1">Selecione o artigo abaixo para visualizar os detalhes completos da regra.</p>
                 </div>
 
-                <!-- Lista contendo apenas o Artigo G1 -->
+                <!-- Lista com o Artigo G1 atualizado e polido -->
                 <div class="space-y-4">
                     
-                    <div onclick="openArticleModal('Artigo G1', 'Se o seu jogo ou o do adversário sair no momento da partida por qualquer motivo que seja, será contado como quitar da partida e estará correndo risco de punição prevista para quem quita, caso o adversário ou outro time da competição queira representar. O quit é decidido diretamente pelo jogo no histórico de partidas.')" 
+                    <div onclick="openArticleModal('Artigo G1 — Desconexão e Queda de Partida (Quit)', 'Proposta por: Ministro Renan\nAprovado por: Votação dos clubes (placar de 6 a 1)\nVigência: 2 de novembro de 2026 às 14:17 (Aplicável a campeonatos atuais e futuros)\n\nQualquer desconexão da partida, independentemente do motivo técnico (queda de conexão, fechamento de aplicativo, falha de servidor ou qualquer outra razão), ocorrida no decorrer do jogo, é oficialmente contabilizada como quit (abandono de partida) quando confirmada diretamente pelo histórico de partidas do jogo. O jogador cuja queda for atestada por esse registro estará sujeito às punições previstas para quit, desde que o adversário ou outra equipe participante da competição apresente representação formal perante o STF-99.')" 
                          class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-accent/50 transition cursor-pointer flex items-center justify-between group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-xl bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent font-heading text-xl group-hover:bg-ef-accent group-hover:text-black transition">
                                 G1
                             </div>
                             <div>
-                                <span class="text-xs font-bold text-ef-accent uppercase tracking-wider">Regra Geral Válida para Todos os Campeonatos</span>
-                                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-ef-accent transition">Artigo G1 — Queda de Conexão / Quit</h3>
-                                <p class="text-slate-400 text-sm mt-1">Clique para ler a diretriz oficial sobre quedas e desistências identificadas pelo histórico do jogo.</p>
+                                <span class="text-xs font-bold text-ef-accent uppercase tracking-wider">Proposto pelo Ministro Renan • Votação 6x1</span>
+                                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-ef-accent transition">Artigo G1 — Desconexão e Queda de Partida (Quit)</h3>
+                                <p class="text-slate-400 text-sm mt-1">Clique para ler a diretriz oficial sobre quedas, validação por histórico de partidas e representação.</p>
                             </div>
                         </div>
                         <div class="text-slate-400 group-hover:text-ef-accent transition transform group-hover:translate-x-1">
@@ -219,11 +269,11 @@
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <div class="flex items-center gap-2 mb-2">
-                <span class="px-3 py-1 bg-ef-accent/20 text-ef-accent rounded-full text-xs font-bold border border-ef-accent/30 uppercase">Norma Oficial</span>
+                <span class="px-3 py-1 bg-ef-accent/20 text-ef-accent rounded-full text-xs font-bold border border-ef-accent/30 uppercase">Norma Oficial STF-99</span>
             </div>
             <h3 id="modalArticleTitle" class="font-heading text-3xl font-bold text-white mb-4"></h3>
-            <p id="modalArticleBody" class="text-slate-300 text-sm leading-relaxed mb-6 bg-slate-900/60 p-4 rounded-xl border border-white/5">
-            </p>
+            <div id="modalArticleBody" class="text-slate-300 text-sm leading-relaxed mb-6 bg-slate-900/60 p-4 rounded-xl border border-white/5 whitespace-pre-line">
+            </div>
             <button onclick="closeArticleModal()" class="w-full py-3 rounded-xl bg-ef-accent text-black font-bold uppercase tracking-wider hover:opacity-90 transition">
                 Entendido
             </button>
@@ -250,7 +300,6 @@
 
         // Modal de Artigos
         function openArticleModal(title, text) {
-            document.getElementById('modalArticleTitleinnerText').innerText = title;
             document.getElementById('modalArticleTitle').innerText = title;
             document.getElementById('modalArticleBody').innerText = text;
             document.getElementById('articleModal').classList.remove('hidden');
