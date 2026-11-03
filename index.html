@@ -82,8 +82,8 @@
                     </div>
                 </a>
 
-                <!-- Nav Desktop (Botões expansíveis) -->
-                <nav class="hidden md:flex items-center gap-4 font-semibold text-sm tracking-wide text-slate-300">
+                <!-- Menu Desktop (Ocultado em telas pequenas, visível em PC) -->
+                <nav class="hidden md:flex items-center gap-3 font-semibold text-sm tracking-wide text-slate-300">
                     <button onclick="toggleSection('secao-ministros')" class="hover:text-ef-cyan transition-colors px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-2 cursor-pointer">
                         <i data-lucide="users" class="w-4 h-4 text-ef-cyan"></i> CONHEÇA OS MINISTROS
                     </button>
@@ -98,26 +98,26 @@
                     </button>
                 </nav>
 
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none">
+                <!-- Botão Menu Sanduíche (Mobile) -->
+                <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none cursor-pointer">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Nav Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-ef-card border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
-            <button onclick="toggleSection('secao-ministros'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
-                <i data-lucide="users" class="w-4 h-4 text-ef-cyan"></i> CONHEÇA OS MINISTROS
+        <!-- Menu Mobile Dropdown (Um embaixo do outro, oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ef-card border-b border-white/10 px-4 py-4 space-y-2.5 shadow-2xl">
+            <button onclick="toggleSection('secao-ministros'); closeMobileMenu();" class="w-full text-left py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-ef-cyan font-semibold flex items-center gap-3 transition">
+                <i data-lucide="users" class="w-5 h-5 text-ef-cyan"></i> CONHEÇA OS MINISTROS
             </button>
-            <button onclick="toggleSection('secao-gerais'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
-                <i data-lucide="book-open" class="w-4 h-4 text-ef-accent"></i> REGRAS GERAIS
+            <button onclick="toggleSection('secao-gerais'); closeMobileMenu();" class="w-full text-left py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-ef-accent font-semibold flex items-center gap-3 transition">
+                <i data-lucide="book-open" class="w-5 h-5 text-ef-accent"></i> REGRAS GERAIS
             </button>
-            <button onclick="toggleSection('secao-temporarias'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-yellow font-semibold flex items-center gap-2">
-                <i data-lucide="clock" class="w-4 h-4 text-ef-yellow"></i> REGRAS TEMPORÁRIAS
+            <button onclick="toggleSection('secao-temporarias'); closeMobileMenu();" class="w-full text-left py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-ef-yellow font-semibold flex items-center gap-3 transition">
+                <i data-lucide="clock" class="w-5 h-5 text-ef-yellow"></i> REGRAS TEMPORÁRIAS
             </button>
-            <button onclick="toggleSection('secao-arquivados'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-purple-400 font-semibold flex items-center gap-2">
-                <i data-lucide="archive" class="w-4 h-4 text-purple-400"></i> CASOS ARQUIVADOS
+            <button onclick="toggleSection('secao-arquivados'); closeMobileMenu();" class="w-full text-left py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-purple-400 font-semibold flex items-center gap-3 transition">
+                <i data-lucide="archive" class="w-5 h-5 text-purple-400"></i> CASOS ARQUIVADOS
             </button>
         </div>
     </header>
@@ -258,7 +258,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO RETRÁTIL 4: CASOS ARQUIVADOS (JULGAMENTOS DECIDIDOS) -->
+        <!-- SEÇÃO RETRÁTIL 4: CASOS ARQUIVADOS -->
         <section id="secao-arquivados" class="hidden py-12 bg-ef-bg relative border-b border-white/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -349,7 +349,7 @@
             </p>
 
             <div class="flex items-center gap-4">
-                <a href="https://chat.whatsapp.com/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 hover:bg-green-500/20 hover:text-green-400 flex items-center justify-center transition">
+                <a href="https://chat.whatsapp.com/CRgAet0FaTeDlBMVTG2rH9?s=cl&p=a&iam=2" target="_blank" class="w-10 h-10 rounded-full bg-white/5 hover:bg-green-500/20 hover:text-green-400 flex items-center justify-center transition">
                     <i data-lucide="message-circle" class="w-5 h-5"></i>
                 </a>
             </div>
@@ -379,7 +379,7 @@
     <script>
         lucide.createIcons();
 
-        // Menu Mobile Toggle
+        // Menu Mobile Toggle (Abre e fecha o menu dropdown vertical)
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -391,15 +391,13 @@
             mobileMenu.classList.add('hidden');
         }
 
-        // Função universal para abrir/fechar seções (expansível)
+        // Função universal para abrir/fechar seções e fechar o menu mobile ao clicar
         function toggleSection(id) {
             const secoes = ['secao-ministros', 'secao-gerais', 'secao-temporarias', 'secao-arquivados'];
             const alvo = document.getElementById(id);
             
-            // Se a seção já estiver visível, ela fecha. Caso contrário, abre a selecionada.
             const estaVisivel = !alvo.classList.contains('hidden');
 
-            // Opcional: Fechar outras seções ao abrir uma (efeito acordeão limpo)
             secoes.forEach(sId => {
                 document.getElementById(sId).classList.add('hidden');
             });
@@ -408,6 +406,7 @@
                 alvo.classList.remove('hidden');
                 alvo.scrollIntoView({ behavior: 'smooth' });
             }
+            closeMobileMenu();
         }
 
         // Modal de Leitura
