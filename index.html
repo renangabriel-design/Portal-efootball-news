@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STF 99 — Supremo Tribunal de Fairness</title>
+    <title>STF-99 — Supremo Tribunal de Fairness</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -82,20 +82,20 @@
                     </div>
                 </a>
 
-                <!-- Nav Desktop -->
-                <nav class="hidden md:flex items-center gap-6 font-semibold text-sm tracking-wide text-slate-300">
-                    <button onclick="toggleMinistros()" class="hover:text-ef-cyan transition-colors flex items-center gap-1.5 cursor-pointer">
-                        <i data-lucide="users" class="w-4 h-4"></i> CONHEÇA OS MINISTROS
+                <!-- Nav Desktop (Botões expansíveis) -->
+                <nav class="hidden md:flex items-center gap-4 font-semibold text-sm tracking-wide text-slate-300">
+                    <button onclick="toggleSection('secao-ministros')" class="hover:text-ef-cyan transition-colors px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="users" class="w-4 h-4 text-ef-cyan"></i> CONHEÇA OS MINISTROS
                     </button>
-                    <a href="#gerais" class="hover:text-ef-accent transition-colors flex items-center gap-1.5">
-                        <i data-lucide="book-open" class="w-4 h-4"></i> REGRAS GERAIS
-                    </a>
-                    <a href="#temporarias" class="hover:text-ef-accent transition-colors flex items-center gap-1.5">
-                        <i data-lucide="clock" class="w-4 h-4"></i> REGRAS TEMPORÁRIAS
-                    </a>
-                    <a href="#arquivados" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-                        <i data-lucide="archive" class="w-4 h-4"></i> CASOS ARQUIVADOS
-                    </a>
+                    <button onclick="toggleSection('secao-gerais')" class="hover:text-ef-accent transition-colors px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="book-open" class="w-4 h-4 text-ef-accent"></i> REGRAS GERAIS
+                    </button>
+                    <button onclick="toggleSection('secao-temporarias')" class="hover:text-ef-yellow transition-colors px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="clock" class="w-4 h-4 text-ef-yellow"></i> REGRAS TEMPORÁRIAS
+                    </button>
+                    <button onclick="toggleSection('secao-arquivados')" class="hover:text-purple-400 transition-colors px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="archive" class="w-4 h-4 text-purple-400"></i> CASOS ARQUIVADOS
+                    </button>
                 </nav>
 
                 <!-- Mobile menu button -->
@@ -107,25 +107,25 @@
 
         <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-ef-card border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
-            <button onclick="toggleMinistros(); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
-                <i data-lucide="users" class="w-4 h-4"></i> CONHEÇA OS MINISTROS
+            <button onclick="toggleSection('secao-ministros'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
+                <i data-lucide="users" class="w-4 h-4 text-ef-cyan"></i> CONHEÇA OS MINISTROS
             </button>
-            <a href="#gerais" class="block py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
-                <i data-lucide="book-open" class="w-4 h-4"></i> REGRAS GERAIS
-            </a>
-            <a href="#temporarias" class="block py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
-                <i data-lucide="clock" class="w-4 h-4"></i> REGRAS TEMPORÁRIAS
-            </a>
-            <a href="#arquivados" class="block py-2 text-slate-300 hover:text-purple-400 font-semibold flex items-center gap-2">
-                <i data-lucide="archive" class="w-4 h-4"></i> CASOS ARQUIVADOS
-            </a>
+            <button onclick="toggleSection('secao-gerais'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4 text-ef-accent"></i> REGRAS GERAIS
+            </button>
+            <button onclick="toggleSection('secao-temporarias'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-yellow font-semibold flex items-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-ef-yellow"></i> REGRAS TEMPORÁRIAS
+            </button>
+            <button onclick="toggleSection('secao-arquivados'); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-purple-400 font-semibold flex items-center gap-2">
+                <i data-lucide="archive" class="w-4 h-4 text-purple-400"></i> CASOS ARQUIVADOS
+            </button>
         </div>
     </header>
 
     <main class="flex-grow pt-20">
 
         <!-- HERO SECTION: NOME DO STF EM DESTAQUE -->
-        <section class="relative min-h-[50vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
+        <section class="relative min-h-[45vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
             <div class="absolute top-1/4 left-10 w-96 h-96 bg-ef-purple/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-ef-accent/15 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -147,13 +147,13 @@
                 </p>
 
                 <!-- Botão Rápido para ver os Ministros -->
-                <button onclick="toggleMinistros()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-ef-card hover:bg-ef-cardHover border border-ef-cyan/40 text-white font-bold text-sm tracking-wider uppercase transition shadow-lg hover:shadow-cyan-500/20 cursor-pointer">
+                <button onclick="toggleSection('secao-ministros')" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-ef-card hover:bg-ef-cardHover border border-ef-cyan/40 text-white font-bold text-sm tracking-wider uppercase transition shadow-lg hover:shadow-cyan-500/20 cursor-pointer">
                     <i data-lucide="users" class="w-5 h-5 text-ef-cyan"></i> CONHEÇA OS MINISTROS DO STF
                 </button>
             </div>
         </section>
 
-        <!-- SEÇÃO RETRÁTIL: CONHEÇA OS MINISTROS DO STF -->
+        <!-- SEÇÃO RETRÁTIL 1: CONHEÇA OS MINISTROS -->
         <section id="secao-ministros" class="hidden py-12 bg-slate-950/80 border-b border-white/10 transition-all">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8">
@@ -198,11 +198,11 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: REGRAS GERAIS -->
-        <section id="gerais" class="py-16 bg-ef-bg relative border-b border-white/5">
+        <!-- SEÇÃO RETRÁTIL 2: REGRAS GERAIS -->
+        <section id="secao-gerais" class="hidden py-12 bg-ef-bg relative border-b border-white/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="flex items-center gap-3 mb-8">
+                <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-ef-accent/10 text-ef-accent rounded-xl border border-ef-accent/30">
                         <i data-lucide="book-open" class="w-6 h-6"></i>
                     </div>
@@ -213,8 +213,8 @@
                 </div>
 
                 <div class="space-y-4">
-                    <!-- Artigo G1 atualizado -->
-                    <div onclick="openArticleModal('Artigo G1 — Desconexão e Queda de Partida (Quit)', 'Aprovado por: Ministro Renan\nVotação dos clubes: Placar de 6 a 1\nVigência: 2 de novembro de 2026 às 14:17 (Aplicável a campeonatos atuais e futuros)\n\nQualquer desconexão da partida, independentemente do motivo técnico (queda de conexão, fechamento de aplicativo, falha de servidor ou qualquer outra razão), ocorrida no decorrer do jogo, é oficialmente contabilizada como quit (abandono de partida) quando confirmada diretamente pelo histórico de partidas do jogo. O jogador cuja queda for atestada por esse registro estará sujeito às punições previstas para quit, desde que o adversário ou outra equipe participante da competição apresente representação formal perante o STF-99.')" 
+                    <!-- Artigo G1 -->
+                    <div onclick="openModal('Artigo G1 — Desconexão e Queda de Partida (Quit)', 'Aprovado por: Ministro Renan\nVotação dos clubes: Placar de 6 a 1\nVigência: 2 de novembro de 2026 às 14:17 (Aplicável a campeonatos atuais e futuros)\n\nQualquer desconexão da partida, independentemente do motivo técnico (queda de conexão, fechamento de aplicativo, falha de servidor ou qualquer outra razão), ocorrida no decorrer do jogo, é oficialmente contabilizada como quit (abandono de partida) quando confirmada diretamente pelo histórico de partidas do jogo. O jogador cuja queda for atestada por esse registro estará sujeito às punições previstas para quit, desde que o adversário ou outra equipe participante da competição apresente representação formal perante o STF-99.')" 
                          class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-accent/50 transition cursor-pointer flex items-center justify-between group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-xl bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent font-heading text-xl group-hover:bg-ef-accent group-hover:text-black transition">
@@ -223,7 +223,7 @@
                             <div>
                                 <span class="text-xs font-bold text-ef-accent uppercase tracking-wider">Aprovado por: Ministro Renan</span>
                                 <h3 class="font-heading text-2xl font-bold text-white group-hover:text-ef-accent transition">Artigo G1 — Desconexão e Queda de Partida (Quit)</h3>
-                                <p class="text-slate-400 text-sm mt-1">Clique para ler a diretriz oficial sobre quedas, validação por histórico de partidas e representação.</p>
+                                <p class="text-slate-400 text-sm mt-1">Clique para ler a diretriz oficial sobre quedas e validação por histórico.</p>
                             </div>
                         </div>
                         <div class="text-slate-400 group-hover:text-ef-accent transition transform group-hover:translate-x-1">
@@ -235,11 +235,11 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: REGRAS TEMPORÁRIAS -->
-        <section id="temporarias" class="py-16 bg-slate-950/40 relative border-b border-white/5">
+        <!-- SEÇÃO RETRÁTIL 3: REGRAS TEMPORÁRIAS -->
+        <section id="secao-temporarias" class="hidden py-12 bg-slate-950/60 relative border-b border-white/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="flex items-center gap-3 mb-8">
+                <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-ef-yellow/10 text-ef-yellow rounded-xl border border-ef-yellow/30">
                         <i data-lucide="clock" class="w-6 h-6"></i>
                     </div>
@@ -249,29 +249,20 @@
                     </div>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-ef-yellow/10 border border-ef-yellow/30 flex items-center justify-center text-ef-yellow font-heading text-xl">
-                                T1
-                            </div>
-                            <div>
-                                <span class="text-xs font-bold text-ef-yellow uppercase tracking-wider">Válido Apenas para o Campeonato Atual</span>
-                                <h3 class="font-heading text-2xl font-bold text-white">Diretriz de Escalação Temporária</h3>
-                                <p class="text-slate-400 text-sm mt-1">Norma restrita aplicada exclusivamente à edição vigente do torneio.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-ef-card p-8 rounded-2xl border border-white/10 text-center">
+                    <i data-lucide="info" class="w-10 h-10 text-ef-yellow mx-auto mb-3"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white">No momento não tem regras temporárias estabelecidas.</h3>
+                    <p class="text-slate-400 text-xs mt-1">Quaisquer diretrizes temporárias futuras para competições específicas serão publicadas nesta seção.</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- SEÇÃO: CASOS ARQUIVADOS (JULGAMENTOS DECIDIDOS) -->
-        <section id="arquivados" class="py-16 bg-ef-bg relative">
+        <!-- SEÇÃO RETRÁTIL 4: CASOS ARQUIVADOS (JULGAMENTOS DECIDIDOS) -->
+        <section id="secao-arquivados" class="hidden py-12 bg-ef-bg relative border-b border-white/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="flex items-center gap-3 mb-8">
+                <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-purple-500/10 text-purple-400 rounded-xl border border-purple-500/30">
                         <i data-lucide="archive" class="w-6 h-6"></i>
                     </div>
@@ -282,14 +273,61 @@
                 </div>
 
                 <div class="space-y-4">
-                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">Julgamento Encerrado</span>
-                            <h3 class="font-heading text-2xl font-bold text-white mt-2">Processo #001 — Análise de Partida</h3>
-                            <p class="text-slate-400 text-sm mt-1">Decisão unânime proferida pela bancada de ministros referente à denúncia de W.O.</p>
+                    
+                    <!-- Caso 1 -->
+                    <div onclick="openModal('Caso 1 — Acusação Falsa de Hack e Quit de Partida', 'Competição: Champions League (Edição 1)\nLitígio: Treinador Pedro Henrique vs PSG do treinador Kalebe\n\nResumo do Julgamento:\nNa Champions League Edição 1, durante a partida contra o PSG do treinador Kalebe, o treinador Pedro Henrique acusou o adversário de utilizar hack e abandonou a partida (quit). Após verificação rigorosa, o STF-99 confirmou que o PSG do treinador Kalebe jogou de forma limpa. O treinador Pedro Henrique foi punido por acusação infundada (denúncia sem provas) e por abandono de partida (quit), com aplicação do saldo punitivo oficial fixado em -15 gols no campeonato.')" 
+                         class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition cursor-pointer flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-heading text-xl group-hover:bg-purple-500 group-hover:text-black transition">
+                                C1
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Caso 1</span>
+                                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-300 transition">Acusação Falsa de Hack e Quit de Partida</h3>
+                                <p class="text-slate-400 text-xs mt-1">Treinador Pedro Henrique vs PSG do treinador Kalebe — Punição de -15 gols.</p>
+                            </div>
                         </div>
-                        <span class="text-xs font-semibold text-slate-500">Arquivado</span>
+                        <div class="text-slate-400 group-hover:text-purple-400 transition transform group-hover:translate-x-1">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </div>
                     </div>
+
+                    <!-- Caso 2 -->
+                    <div onclick="openModal('Caso 2 — Queda de Conexão e Validação pelo Histórico Oficial', 'Partida: Aston Villa (treinador Renan) vs PSG (treinador Kalebe)\nVotação da Bancada: Ministros Sousa e Renan (A favor) | Ministro Maurício (Contra)\n\nResumo do Julgamento:\nEm partida disputada entre o Aston Villa do treinador Renan e o PSG do treinador Kalebe, o jogo estava 5 a 2 para o PSG quando ocorreu uma perda de conexão. O sistema do próprio jogo atribuiu a vitória por 3 a 0 a favor do Aston Villa do treinador Renan devido ao encerramento abrupto. O caso foi levado ao STF-99 e a bancada decidiu, por maioria de votos dos Ministros Sousa e Renan (com voto contrário do Ministro Maurício), homologar o placar oficial de 3 a 0 gerado pelo histórico do jogo.')" 
+                         class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition cursor-pointer flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-heading text-xl group-hover:bg-purple-500 group-hover:text-black transition">
+                                C2
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Caso 2</span>
+                                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-300 transition">Queda de Conexão e Validação por Histórico</h3>
+                                <p class="text-slate-400 text-xs mt-1">Aston Villa (treinador Renan) vs PSG (treinador Kalebe) — Decisão por 2x1 na bancada.</p>
+                            </div>
+                        </div>
+                        <div class="text-slate-400 group-hover:text-purple-400 transition transform group-hover:translate-x-1">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+
+                    <!-- Caso 3 -->
+                    <div onclick="openModal('Caso 3 — Denúncia de Perseguição entre Clubes', 'Representante: Treinador Kalebe (PSG)\nDenunciado: Treinador Pedro\nVotação da Bancada: Ministros Sousa e Maurício (A favor) | Ministro Renan (Contra)\n\nResumo do Julgamento:\nO treinador Kalebe apresentou uma denúncia formal ao STF-99 alegando que o treinador Pedro estaria a perseguir a sua equipe (PSG) no intuito de prejudicá-la, solicitando penalização na tabela. O caso foi votado e decidido pela bancada de ministros: os Ministros Sousa e Maurício votaram a favor da punição, enquanto o Ministro Renan votou contra. Por maioria de votos, o treinador Pedro foi punido com a perda de 3 pontos na tabela.')" 
+                         class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition cursor-pointer flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-heading text-xl group-hover:bg-purple-500 group-hover:text-black transition">
+                                C3
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Caso 3</span>
+                                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-300 transition">Denúncia de Perseguição entre Clubes</h3>
+                                <p class="text-slate-400 text-xs mt-1">Treinador Kalebe (PSG) vs Treinador Pedro — Punição de -3 pontos na tabela.</p>
+                            </div>
+                        </div>
+                        <div class="text-slate-400 group-hover:text-purple-400 transition transform group-hover:translate-x-1">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -319,25 +357,25 @@
         </div>
     </footer>
 
-    <!-- MODAL DE LEITURA DO ARTIGO -->
-    <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-ef-card border border-white/10 rounded-2xl max-w-lg w-full p-6 relative box-glow-purple">
-            <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+    <!-- MODAL DE LEITURA (ARTIGOS & CASOS) -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-ef-card border border-white/10 rounded-2xl max-w-lg w-full p-6 relative box-glow-purple max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <div class="flex items-center gap-2 mb-2">
-                <span class="px-3 py-1 bg-ef-accent/20 text-ef-accent rounded-full text-xs font-bold border border-ef-accent/30 uppercase">Norma Oficial STF-99</span>
+                <span class="px-3 py-1 bg-ef-accent/20 text-ef-accent rounded-full text-xs font-bold border border-ef-accent/30 uppercase">Documento Oficial STF-99</span>
             </div>
-            <h3 id="modalArticleTitle" class="font-heading text-3xl font-bold text-white mb-4"></h3>
-            <div id="modalArticleBody" class="text-slate-300 text-sm leading-relaxed mb-6 bg-slate-900/60 p-4 rounded-xl border border-white/5 whitespace-pre-line">
+            <h3 id="modalTitle" class="font-heading text-3xl font-bold text-white mb-4"></h3>
+            <div id="modalBody" class="text-slate-300 text-sm leading-relaxed mb-6 bg-slate-900/60 p-4 rounded-xl border border-white/5 whitespace-pre-line">
             </div>
-            <button onclick="closeArticleModal()" class="w-full py-3 rounded-xl bg-ef-accent text-black font-bold uppercase tracking-wider hover:opacity-90 transition">
-                Entendido
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-ef-accent text-black font-bold uppercase tracking-wider hover:opacity-90 transition">
+                Fechar Documento
             </button>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS DE INTERATIVIDADE -->
     <script>
         lucide.createIcons();
 
@@ -353,24 +391,34 @@
             mobileMenu.classList.add('hidden');
         }
 
-        // Alternar visualização da seção de Ministros
-        function toggleMinistros() {
-            const secao = document.getElementById('secao-ministros');
-            secao.classList.toggle('hidden');
-            if (!secao.classList.contains('hidden')) {
-                secao.scrollIntoView({ behavior: 'smooth' });
+        // Função universal para abrir/fechar seções (expansível)
+        function toggleSection(id) {
+            const secoes = ['secao-ministros', 'secao-gerais', 'secao-temporarias', 'secao-arquivados'];
+            const alvo = document.getElementById(id);
+            
+            // Se a seção já estiver visível, ela fecha. Caso contrário, abre a selecionada.
+            const estaVisivel = !alvo.classList.contains('hidden');
+
+            // Opcional: Fechar outras seções ao abrir uma (efeito acordeão limpo)
+            secoes.forEach(sId => {
+                document.getElementById(sId).classList.add('hidden');
+            });
+
+            if (!estaVisivel) {
+                alvo.classList.remove('hidden');
+                alvo.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
-        // Modal de Artigos
-        function openArticleModal(title, text) {
-            document.getElementById('modalArticleTitle').innerText = title;
-            document.getElementById('modalArticleBody').innerText = text;
-            document.getElementById('articleModal').classList.remove('hidden');
+        // Modal de Leitura
+        function openModal(title, text) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = text;
+            document.getElementById('infoModal').classList.remove('hidden');
         }
 
-        function closeArticleModal() {
-            document.getElementById('articleModal').classList.add('hidden');
+        function closeModal() {
+            document.getElementById('infoModal').classList.add('hidden');
         }
     </script>
 </body>
