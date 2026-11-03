@@ -22,10 +22,10 @@
                             bg: '#0a0d18',
                             card: '#121729',
                             cardHover: '#1a2035',
-                            accent: '#00ff88', /* Neon Green */
-                            cyan: '#00d2ff',   /* Neon Blue/Cyan */
-                            purple: '#7000ff', /* Deep Neon Purple */
-                            yellow: '#ffee00', /* Neon Yellow */
+                            accent: '#00ff88',
+                            cyan: '#00d2ff',
+                            purple: '#7000ff',
+                            yellow: '#ffee00',
                             pink: '#ff007a'
                         }
                     },
@@ -35,8 +35,6 @@
                     },
                     backgroundImage: {
                         'hero-pattern': "linear-gradient(to right bottom, rgba(10, 13, 24, 0.85), rgba(18, 23, 41, 0.95)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=80')",
-                        'gradient-glow': 'radial-gradient(circle, rgba(0,255,136,0.15) 0%, rgba(112,0,255,0.05) 70%, rgba(0,0,0,0) 100%)',
-                        'gradient-card': 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)'
                     }
                 }
             }
@@ -60,54 +58,45 @@
             background: #1e293b;
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ff88;
-        }
     </style>
 </head>
 <body class="bg-ef-bg text-slate-100 font-sans antialiased selection:bg-ef-accent selection:text-black min-h-screen flex flex-col">
 
-    <!-- NAVEGAÇÃO / HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-ef-bg/80 backdrop-blur-md border-b border-white/10">
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-ef-bg/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo -->
+                <!-- Logo / Nome Principal -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-ef-purple via-ef-cyan to-ef-accent p-[2px] transition-transform group-hover:scale-105">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-ef-purple via-ef-cyan to-ef-accent p-[2px]">
                         <div class="w-full h-full bg-ef-bg rounded-[10px] flex items-center justify-center">
                             <i data-lucide="scale" class="w-6 h-6 text-ef-accent"></i>
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-heading text-3xl font-bold leading-none tracking-wider bg-gradient-to-r from-white via-slate-200 to-ef-accent bg-clip-text text-transparent">
-                            STF-99<span class="text-ef-accent">.</span>
+                        <span class="font-heading text-2xl sm:text-3xl font-bold leading-none tracking-wider text-white">
+                            STF-99 <span class="text-ef-accent">—</span>
                         </span>
-                        <span class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase">Supremo Tribunal de Fairness</span>
+                        <span class="text-[9px] sm:text-[10px] text-slate-400 font-semibold tracking-widest uppercase">Supremo Tribunal de Fairness</span>
                     </div>
                 </a>
 
                 <!-- Nav Desktop -->
-                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide text-slate-300">
-                    <a href="#ministros" class="hover:text-ef-cyan transition-colors flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i> MINISTROS
+                <nav class="hidden md:flex items-center gap-6 font-semibold text-sm tracking-wide text-slate-300">
+                    <button onclick="toggleMinistros()" class="hover:text-ef-cyan transition-colors flex items-center gap-1.5 cursor-pointer">
+                        <i data-lucide="users" class="w-4 h-4"></i> CONHEÇA OS MINISTROS
+                    </button>
+                    <a href="#gerais" class="hover:text-ef-accent transition-colors flex items-center gap-1.5">
+                        <i data-lucide="book-open" class="w-4 h-4"></i> REGRAS GERAIS
                     </a>
-                    <a href="#stf" class="hover:text-ef-accent transition-colors flex items-center gap-2 text-ef-accent">
-                        <i data-lucide="book-open" class="w-4 h-4"></i> ARTIGOS STF
+                    <a href="#temporarias" class="hover:text-ef-accent transition-colors flex items-center gap-1.5">
+                        <i data-lucide="clock" class="w-4 h-4"></i> REGRAS TEMPORÁRIAS
+                    </a>
+                    <a href="#arquivados" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                        <i data-lucide="archive" class="w-4 h-4"></i> CASOS ARQUIVADOS
                     </a>
                 </nav>
-
-                <!-- CTA WhatsApp Desktop -->
-                <div class="hidden sm:flex items-center">
-                    <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" 
-                       class="relative group overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-ef-accent">
-                        <span class="absolute inset-0 bg-gradient-to-r from-green-500 via-ef-accent to-ef-cyan rounded-full animate-pulse"></span>
-                        <span class="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-ef-bg text-white font-bold text-sm group-hover:bg-opacity-90 transition-all">
-                            <i data-lucide="message-circle" class="w-4 h-4 text-green-400 fill-green-400/20"></i>
-                            SUPORTE WHATSAPP
-                        </span>
-                    </a>
-                </div>
 
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none">
@@ -118,112 +107,121 @@
 
         <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-ef-card border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
-            <a href="#ministros" class="block py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
-                <i data-lucide="shield-check" class="w-4 h-4"></i> MINISTROS
+            <button onclick="toggleMinistros(); closeMobileMenu();" class="w-full text-left py-2 text-slate-300 hover:text-ef-cyan font-semibold flex items-center gap-2">
+                <i data-lucide="users" class="w-4 h-4"></i> CONHEÇA OS MINISTROS
+            </button>
+            <a href="#gerais" class="block py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i> REGRAS GERAIS
             </a>
-            <a href="#stf" class="block py-2 text-ef-accent font-semibold flex items-center gap-2">
-                <i data-lucide="book-open" class="w-4 h-4"></i> ARTIGOS STF
+            <a href="#temporarias" class="block py-2 text-slate-300 hover:text-ef-accent font-semibold flex items-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4"></i> REGRAS TEMPORÁRIAS
             </a>
-            <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" 
-               class="flex items-center justify-center gap-2 w-full py-3 mt-4 rounded-xl bg-green-500 hover:bg-green-600 text-black font-bold">
-                <i data-lucide="message-circle" class="w-5 h-5 fill-black/20"></i>
-                ENTRAR NO WHATSAPP
+            <a href="#arquivados" class="block py-2 text-slate-300 hover:text-purple-400 font-semibold flex items-center gap-2">
+                <i data-lucide="archive" class="w-4 h-4"></i> CASOS ARQUIVADOS
             </a>
         </div>
     </header>
 
     <main class="flex-grow pt-20">
 
-        <!-- HERO SECTION -->
-        <section class="relative min-h-[45vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
+        <!-- HERO SECTION: NOME DO STF EM DESTAQUE -->
+        <section class="relative min-h-[50vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center overflow-hidden py-16">
             <div class="absolute top-1/4 left-10 w-96 h-96 bg-ef-purple/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-ef-accent/15 rounded-full blur-[120px] pointer-events-none"></div>
 
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
                     <span class="w-2.5 h-2.5 rounded-full bg-ef-accent animate-ping"></span>
-                    <span class="text-xs font-bold tracking-widest text-ef-accent uppercase">Tribunal Oficial dos Campeonatos</span>
+                    <span class="text-xs font-bold tracking-widest text-ef-accent uppercase">Tribunal Oficial & Jurisprudência</span>
                 </div>
 
-                <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-none mb-4">
-                    STF-99 — SUPREMO TRIBUNAL DE FAIRNESS <br/>
+                <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight uppercase leading-none mb-4">
+                    STF-99 <br/>
                     <span class="bg-gradient-to-r from-ef-accent via-ef-cyan to-ef-purple bg-clip-text text-transparent text-glow-green">
-                        CORPO DE MINISTROS & REGULAMENTO
+                        SUPREMO TRIBUNAL DE FAIRNESS
                     </span>
                 </h1>
 
-                <p class="max-w-xl mx-auto text-slate-300 text-base sm:text-lg">
-                    Consulte abaixo os ministros responsáveis pela aplicação das leis e as diretrizes oficiais dos campeonatos.
+                <p class="max-w-2xl mx-auto text-slate-300 text-base sm:text-lg mb-8">
+                    Órgão máximo de justiça, regulamentação e julgamento de litígios das competições oficiais.
                 </p>
+
+                <!-- Botão Rápido para ver os Ministros -->
+                <button onclick="toggleMinistros()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-ef-card hover:bg-ef-cardHover border border-ef-cyan/40 text-white font-bold text-sm tracking-wider uppercase transition shadow-lg hover:shadow-cyan-500/20 cursor-pointer">
+                    <i data-lucide="users" class="w-5 h-5 text-ef-cyan"></i> CONHEÇA OS MINISTROS DO STF
+                </button>
             </div>
         </section>
 
-        <!-- SEÇÃO MINISTROS ATUAIS -->
-        <section id="ministros" class="py-16 bg-slate-950/60 border-b border-white/5">
+        <!-- SEÇÃO RETRÁTIL: CONHEÇA OS MINISTROS DO STF -->
+        <section id="secao-ministros" class="hidden py-12 bg-slate-950/80 border-b border-white/10 transition-all">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <span class="text-ef-cyan text-xs font-bold tracking-widest uppercase">Autoridades do Tribunal</span>
+                <div class="text-center mb-8">
+                    <span class="text-ef-cyan text-xs font-bold tracking-widest uppercase">Corpo Judiciário</span>
                     <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider mt-1">
-                        MINISTROS <span class="text-ef-cyan">ATUAIS</span>
+                        MINISTROS <span class="text-ef-cyan">ATUAIS DO STF</span>
                     </h2>
+                    <p class="text-slate-400 text-xs mt-1">Autoridades responsáveis pelas decisões, relatorias e votações do tribunal.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Ministro Sousa -->
                     <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-cyan/50 transition-all text-center group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-cyan/10 border border-ef-cyan/30 flex items-center justify-center text-ef-cyan mb-4 group-hover:bg-ef-cyan group-hover:text-black transition">
-                            <i data-lucide="user-check" class="w-8 h-8"></i>
+                        <div class="w-14 h-14 mx-auto rounded-full bg-ef-cyan/10 border border-ef-cyan/30 flex items-center justify-center text-ef-cyan mb-3 group-hover:bg-ef-cyan group-hover:text-black transition">
+                            <i data-lucide="user-check" class="w-7 h-7"></i>
                         </div>
-                        <span class="text-[10px] font-extrabold text-ef-cyan uppercase tracking-widest bg-ef-cyan/10 px-3 py-1 rounded-full border border-ef-cyan/20">Ministro</span>
-                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Sousa</h3>
-                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                        <span class="text-[9px] font-extrabold text-ef-cyan uppercase tracking-widest bg-ef-cyan/10 px-2.5 py-1 rounded-full border border-ef-cyan/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-2">Sousa</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada</p>
                     </div>
 
                     <!-- Ministro Renan -->
                     <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-accent/50 transition-all text-center group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent mb-4 group-hover:bg-ef-accent group-hover:text-black transition">
-                            <i data-lucide="shield" class="w-8 h-8"></i>
+                        <div class="w-14 h-14 mx-auto rounded-full bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent mb-3 group-hover:bg-ef-accent group-hover:text-black transition">
+                            <i data-lucide="shield" class="w-7 h-7"></i>
                         </div>
-                        <span class="text-[10px] font-extrabold text-ef-accent uppercase tracking-widest bg-ef-accent/10 px-3 py-1 rounded-full border border-ef-accent/20">Ministro</span>
-                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Renan</h3>
-                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                        <span class="text-[9px] font-extrabold text-ef-accent uppercase tracking-widest bg-ef-accent/10 px-2.5 py-1 rounded-full border border-ef-accent/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-2">Renan</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada</p>
                     </div>
 
                     <!-- Ministro Maurício -->
                     <div class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-purple/50 transition-all text-center group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-ef-purple/10 border border-ef-purple/30 flex items-center justify-center text-ef-purple mb-4 group-hover:bg-ef-purple group-hover:text-white transition">
-                            <i data-lucide="award" class="w-8 h-8"></i>
+                        <div class="w-14 h-14 mx-auto rounded-full bg-ef-purple/10 border border-ef-purple/30 flex items-center justify-center text-ef-purple mb-3 group-hover:bg-ef-purple group-hover:text-white transition">
+                            <i data-lucide="award" class="w-7 h-7"></i>
                         </div>
-                        <span class="text-[10px] font-extrabold text-ef-purple uppercase tracking-widest bg-ef-purple/10 px-3 py-1 rounded-full border border-ef-purple/20">Ministro</span>
-                        <h3 class="font-heading text-3xl font-bold text-white mt-3">Maurício</h3>
-                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada do STF-99</p>
+                        <span class="text-[9px] font-extrabold text-ef-purple uppercase tracking-widest bg-ef-purple/10 px-2.5 py-1 rounded-full border border-ef-purple/20">Ministro</span>
+                        <h3 class="font-heading text-3xl font-bold text-white mt-2">Maurício</h3>
+                        <p class="text-xs text-slate-400 mt-1">Membro Integrante da Bancada</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO STF: LISTA DE ARTIGOS -->
-        <section id="stf" class="py-20 bg-ef-bg relative">
+        <!-- SEÇÃO: REGRAS GERAIS -->
+        <section id="gerais" class="py-16 bg-ef-bg relative border-b border-white/5">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="text-center mb-12">
-                    <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider">
-                        LISTA DE <span class="text-ef-accent">ARTIGOS</span>
-                    </h2>
-                    <p class="text-slate-400 text-sm mt-1">Selecione o artigo abaixo para visualizar os detalhes completos da regra.</p>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="p-3 bg-ef-accent/10 text-ef-accent rounded-xl border border-ef-accent/30">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="text-ef-accent text-xs font-bold tracking-widest uppercase">Normas Permanentes</span>
+                        <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider">REGRAS GERAIS</h2>
+                    </div>
                 </div>
 
-                <!-- Lista com o Artigo G1 atualizado e polido -->
                 <div class="space-y-4">
-                    
-                    <div onclick="openArticleModal('Artigo G1 — Desconexão e Queda de Partida (Quit)', 'Proposta por: Ministro Renan\nAprovado por: Votação dos clubes (placar de 6 a 1)\nVigência: 2 de novembro de 2026 às 14:17 (Aplicável a campeonatos atuais e futuros)\n\nQualquer desconexão da partida, independentemente do motivo técnico (queda de conexão, fechamento de aplicativo, falha de servidor ou qualquer outra razão), ocorrida no decorrer do jogo, é oficialmente contabilizada como quit (abandono de partida) quando confirmada diretamente pelo histórico de partidas do jogo. O jogador cuja queda for atestada por esse registro estará sujeito às punições previstas para quit, desde que o adversário ou outra equipe participante da competição apresente representação formal perante o STF-99.')" 
+                    <!-- Artigo G1 atualizado -->
+                    <div onclick="openArticleModal('Artigo G1 — Desconexão e Queda de Partida (Quit)', 'Aprovado por: Ministro Renan\nVotação dos clubes: Placar de 6 a 1\nVigência: 2 de novembro de 2026 às 14:17 (Aplicável a campeonatos atuais e futuros)\n\nQualquer desconexão da partida, independentemente do motivo técnico (queda de conexão, fechamento de aplicativo, falha de servidor ou qualquer outra razão), ocorrida no decorrer do jogo, é oficialmente contabilizada como quit (abandono de partida) quando confirmada diretamente pelo histórico de partidas do jogo. O jogador cuja queda for atestada por esse registro estará sujeito às punições previstas para quit, desde que o adversário ou outra equipe participante da competição apresente representação formal perante o STF-99.')" 
                          class="bg-ef-card p-6 rounded-2xl border border-white/10 hover:border-ef-accent/50 transition cursor-pointer flex items-center justify-between group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-xl bg-ef-accent/10 border border-ef-accent/30 flex items-center justify-center text-ef-accent font-heading text-xl group-hover:bg-ef-accent group-hover:text-black transition">
                                 G1
                             </div>
                             <div>
-                                <span class="text-xs font-bold text-ef-accent uppercase tracking-wider">Proposto pelo Ministro Renan • Votação 6x1</span>
+                                <span class="text-xs font-bold text-ef-accent uppercase tracking-wider">Aprovado por: Ministro Renan</span>
                                 <h3 class="font-heading text-2xl font-bold text-white group-hover:text-ef-accent transition">Artigo G1 — Desconexão e Queda de Partida (Quit)</h3>
                                 <p class="text-slate-400 text-sm mt-1">Clique para ler a diretriz oficial sobre quedas, validação por histórico de partidas e representação.</p>
                             </div>
@@ -232,7 +230,66 @@
                             <i data-lucide="chevron-right" class="w-6 h-6"></i>
                         </div>
                     </div>
+                </div>
 
+            </div>
+        </section>
+
+        <!-- SEÇÃO: REGRAS TEMPORÁRIAS -->
+        <section id="temporarias" class="py-16 bg-slate-950/40 relative border-b border-white/5">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="p-3 bg-ef-yellow/10 text-ef-yellow rounded-xl border border-ef-yellow/30">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="text-ef-yellow text-xs font-bold tracking-widest uppercase">Vigência Específica</span>
+                        <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider">REGRAS TEMPORÁRIAS</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-ef-yellow/10 border border-ef-yellow/30 flex items-center justify-center text-ef-yellow font-heading text-xl">
+                                T1
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-ef-yellow uppercase tracking-wider">Válido Apenas para o Campeonato Atual</span>
+                                <h3 class="font-heading text-2xl font-bold text-white">Diretriz de Escalação Temporária</h3>
+                                <p class="text-slate-400 text-sm mt-1">Norma restrita aplicada exclusivamente à edição vigente do torneio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CASOS ARQUIVADOS (JULGAMENTOS DECIDIDOS) -->
+        <section id="arquivados" class="py-16 bg-ef-bg relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="p-3 bg-purple-500/10 text-purple-400 rounded-xl border border-purple-500/30">
+                        <i data-lucide="archive" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="text-purple-400 text-xs font-bold tracking-widest uppercase">Jurisprudência & Histórico</span>
+                        <h2 class="font-heading text-4xl font-bold text-white uppercase tracking-wider">CASOS ARQUIVADOS</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-ef-card p-6 rounded-2xl border border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">Julgamento Encerrado</span>
+                            <h3 class="font-heading text-2xl font-bold text-white mt-2">Processo #001 — Análise de Partida</h3>
+                            <p class="text-slate-400 text-sm mt-1">Decisão unânime proferida pela bancada de ministros referente à denúncia de W.O.</p>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-500">Arquivado</span>
+                    </div>
                 </div>
 
             </div>
@@ -246,11 +303,11 @@
             
             <div class="flex items-center gap-3">
                 <i data-lucide="scale" class="w-6 h-6 text-ef-accent"></i>
-                <span class="font-heading text-2xl font-bold text-white tracking-wider">STF-99 — SUPREMO TRIBUNAL DE FAIRNESS</span>
+                <span class="font-heading text-xl font-bold text-white tracking-wider">STF-99 — SUPREMO TRIBUNAL DE FAIRNESS</span>
             </div>
 
             <p class="text-xs text-center md:text-left text-slate-500">
-                Regulamentação e disciplina aplicadas a todos os campeonatos da comunidade.
+                Justiça e disciplina aplicadas às competições.
             </p>
 
             <div class="flex items-center gap-4">
@@ -292,11 +349,18 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Alternar visualização da seção de Ministros
+        function toggleMinistros() {
+            const secao = document.getElementById('secao-ministros');
+            secao.classList.toggle('hidden');
+            if (!secao.classList.contains('hidden')) {
+                secao.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
 
         // Modal de Artigos
         function openArticleModal(title, text) {
